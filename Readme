@@ -1,0 +1,4 @@
+
+in the env will have the access
+SLACK_AUTH_TOKEN="X"
+SLACK_CHANNEL_ID="Y"
