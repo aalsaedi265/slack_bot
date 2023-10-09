@@ -2,3 +2,6 @@
 in the env will have the access
 SLACK_AUTH_TOKEN="X"
 SLACK_CHANNEL_ID="Y"
+
+a  walk though of how to do the project
+https://programmingpercy.tech/blog/develop-a-slack-bot-using-golang/

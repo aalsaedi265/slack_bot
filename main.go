@@ -5,17 +5,22 @@ import(
 	"fmt"
 	"os"
 	"time"
+	"aalsaedi265/slack_bot/database"
 
 	"github.com/joho/godotenv"
 	"github.com/slack-go/slack"
+	// "github.com/slack-go/slack/socketmode"
 )
 func main(){
+
+	database.Connector();
 
 	godotenv.Load(".env")
 	token := os.Getenv("SLACK_AUTH_TOKEN")
 	channelID := os.Getenv("SLACK_CHANNEL_ID")
+	appToken := os.Getenv("SLACK_APP_TOKEN")
 
-	client := slack.New(token, slack.OptionDebug(true))
+	client := slack.New(token, slack.OptionDebug(true), slack.OptionAppLevelToken(appToken))
 
 	attachment := slack.Attachment{
 		Pretext: "Super Bot Message",
@@ -35,5 +40,4 @@ func main(){
 	}
 	fmt.Printf("Message sent at %s", timeStamp)
 
-	
 }
