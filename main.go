@@ -23,6 +23,10 @@ func initDB(){
 					Password:   "1234",
 					DB:         "Student_Details",
 				}
-	connectingString = database.GetConnectionString(config)
+	connectingString := database.GetConnectionString(config)
+	err := database.Connect(connectingString)
+	if err != nil {
+		panic(err.Error())
+	}
 	
 }
