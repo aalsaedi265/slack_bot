@@ -3,6 +3,8 @@ package database
 
 import (
 	"log"
+	"aalsaedi265/slack_bot/entity"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mssql"
 )
@@ -18,4 +20,9 @@ func Connect(connectionString string) error {
 	}
 	log.Println("Connection Works Eurrieka")
 	return nil
+}
+
+func Migrate(table *entity.Student){
+	Connector.AutoMigrate(&table)
+	log.Println("Migration completed")
 }

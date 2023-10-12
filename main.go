@@ -3,15 +3,22 @@ package main
 
 import(
 	"fmt"
+	"net/http"
 	// "os"
 	// "time"
+	"log"
 	"aalsaedi265/slack_bot/database"
+	"aalsaedi265/slack_bot/entity"
 
 
 )
 func main(){
 	fmt.Println("the world")
 	initDB()
+	log.Println("Starting the HTTP server on port 8999")
+	
+
+
 
 }
 
@@ -28,5 +35,5 @@ func initDB(){
 	if err != nil {
 		panic(err.Error())
 	}
-	
+	database.Migrate(&entity.Student{})	
 }
