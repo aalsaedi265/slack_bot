@@ -25,6 +25,12 @@ func main(){
 
 func initaliseHanlders(router *mux.Router){
 	router.HandleFunc("/get", controller.GetAllStudent).Methods("GET")
+	router.HandleFunc("/get/{id}", controller.GetStudentsByID).Methods("GET")
+	router.HandleFunc("/create", controller.CreateStudent).Methods("POST")
+	router.HandleFunc("/update/{id}", controller.UpdateStudentByID).Methods("PUT")
+	router.HandleFunc("/delete/{id}", controller.DeletStudentByID).Methods("DELETE")
+
+
 }
 
 func initDB(){
